@@ -9,7 +9,7 @@
 <div class="container">
       <ui-view></ui-view>
 </div>   
-  <!-- Angular -->
+ <!-- Angular -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
   <!-- AngularUI Router -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
@@ -30,22 +30,14 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
   //this is here to make plunkr work with AngularJS routing
   angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
 </script>
   <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyBsxva-ijGwTJDRN6__cfO5nV2qu21xYZI",
-      authDomain: "bloc-chat-c0a27.firebaseapp.com",
-      databaseURL: "https://bloc-chat-c0a27.firebaseio.com",
-      projectId: "bloc-chat-c0a27",
-      storageBucket: "",
-      messagingSenderId: "475674825225"
-  };
   // Initialize Firebase
-  var config2 = {
+  var config = {
     apiKey: "AIzaSyDt6zLUP8b5CRD6hXBbJeN4-3iObfVcnFI",
     authDomain: "todolist-220d4.firebaseapp.com",
     databaseURL: "https://todolist-220d4.firebaseio.com",
@@ -54,12 +46,11 @@
     messagingSenderId: "1079588530057"
   };
     
-    firebase.initializeApp(config2);
+    firebase.initializeApp(config);
   </script>   
     <script src="/scripts/app.js"></script>
-    <script src="/scripts/controllers/HomeCtrl.js"></script>
-    <script src="/scripts/services/Room.js"></script>
     <script src="/scripts/services/Task.js"></script>
+    <script src="/scripts/controllers/HomeCtrl.js"></script>
 
 </body>
 </html>
