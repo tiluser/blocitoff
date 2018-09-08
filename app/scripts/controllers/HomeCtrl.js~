@@ -10,6 +10,12 @@
             Task.add();
             $window.alert(Task.taskDate);
         };
+
+        this.cfjsSubmit = function(input) {
+          //  Task.cfjsSubmit(input);
+            $window.alert(input);
+        };
+
     }
 
     angular

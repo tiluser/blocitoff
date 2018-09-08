@@ -25,6 +25,14 @@ var now = function () {
         Task.description = "New task";
         Task.all = tasks;
         Task.taskDate = now();
+        Task.cfjsSubmit = function (input) {
+            cfjsSubmit(input);
+         //     console.log("This is a test");
+        };
+
+        Task.doit = function () {
+            alert();
+        };
       
         Task.add = function () {
             tasks.$add({ description: Task.description, taskDate: Task.taskDate, taskPriority: 3, status: "A" });

@@ -23,12 +23,19 @@ var now = function () {
         var tasks = $firebaseArray(ref);
         Task.ph = "Enter task description here";
         Task.description = "New task";
-        Task.priority = 3
         Task.all = tasks;
         Task.taskDate = now();
+        Task.cfjsSubmit = function (input) {
+            cfjsSubmit(input);
+         //     console.log("This is a test");
+        };
+
+        Task.doit = function () {
+            alert();
+        };
       
         Task.add = function () {
-            tasks.$add({ description: Task.description, taskDate: Task.taskDate, priority: Task.priority, status: "A" });
+            tasks.$add({ description: Task.description, taskDate: Task.taskDate, taskPriority: 3, status: "A" });
            //     .then(function () { alert($window.alert("Added")) } );
         //      tasks.$add({ roomName: "ZZZZZZZZ" });
         };

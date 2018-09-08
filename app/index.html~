@@ -21,7 +21,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></script>
   <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-  <!-- AngularFire -->
+<!-- AngularFire -->
 <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
   <!-- AngularUI Bootstrap -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
@@ -48,7 +48,43 @@
     
     firebase.initializeApp(config);
   </script>   
-    <script src="/scripts/app.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/services/CreoleForth.js"></script>
+    <script>
+        var parseInput = function (input) {
+            var parsedInput = input.split(/\s+/);
+            return parsedInput;
+        };
+
+        // puts textarea values onto the stack
+        var parseStack = function (taval) {
+            var ds0 = [];
+            var ds = [];
+            ds0 = taval.split("\n").reverse();
+            for (i = 0; i < ds0.length; i++) {
+                if (ds0[i].trim() != "") {
+                    ds.push(ds0[i]);
+                } 
+            }
+            return ds;
+        };
+        
+        var cfjsSubmit = function (input) {
+      //      var ds = document.getElementById('DataStack').value;
+      //      var dsVals = parseStack(ds);
+            gsp.DataStack = dsVals;
+            
+       //     var input = document.getElementById('Input').value
+            gsp.InputArea = input;
+            cfb1.Modules.Interpreter.doParseInput(gsp);
+            cfb1.Modules.Interpreter.doOuter(gsp);
+       //     document.getElementById('DataStack').value = gsp.DataStack.reverse().join("\n");
+       //     document.getElementById('vlist').innerHTML = gsp.HelpCommentField;
+       //     document.getElementById('soundArea').innerHTML = gsp.SoundField;
+        };    
+    </script>
+
+
     <script src="/scripts/services/Task.js"></script>
     <script src="/scripts/controllers/HomeCtrl.js"></script>
 
