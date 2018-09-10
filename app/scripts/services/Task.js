@@ -27,18 +27,21 @@ var now = function () {
         Task.taskDate = now();
         Task.cfjsSubmit = function (input) {
             cfjsSubmit(input);
-         //     console.log("This is a test");
+            console.log("This is a test");
         };
 
         Task.doit = function () {
             alert();
         };
       
-        Task.add = function () {
+        Task.addOld = function () {
             tasks.$add({ description: Task.description, taskDate: Task.taskDate, taskPriority: 3, status: "A" });
-           //     .then(function () { alert($window.alert("Added")) } );
-        //      tasks.$add({ roomName: "ZZZZZZZZ" });
         };
+
+        Task.add = function (description, taskPriority) {
+            tasks.$add({ description: description, taskDate: Task.taskDate, taskPriority: taskPriority, status: "A" });
+        };
+
 
         return Task;
     }
