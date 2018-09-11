@@ -1,11 +1,13 @@
 <h1>Home Page - {{ home.title }}</h1>
      <p>
-    <table>
-        <tr ng-repeat="task in home.tasks">
+     <table>
+         <th>Description</th><th>Date</th><th>Priority</th><th>Status</th>
+         <tr ng-repeat="task in home.tasks" ng-show="task.status === 'A'" ng-init="home.doit(task.$id)">
             <td>{{ task.description }}</td>
             <td>{{ task.taskDate }}</td>
             <td>{{ task.taskPriority }}</td>
             <td>{{ task.status }}</td>
+             </div>
         </tr>
     </table>
 
@@ -13,4 +15,4 @@
     <p>Description : <input type="text" ng-model="description"></p>
     <p>Priority (1-5): <input type="text" ng-model="priority"></p>
     <p><button type="button" class="btn btn-default" ng-click="home.addTask(description, priority)">Add Task</button></p>
-    <p><button type="button" class="btn btn-default" ng-click=home.cfjsSubmit("HELLO")>Say hello</button></p>
+    <p><button type="button" class="btn btn-default" ng-click=home.cfjsSubmit("HTEST")>Say hello</button></p> 

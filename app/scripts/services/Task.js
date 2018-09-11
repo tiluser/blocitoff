@@ -16,7 +16,7 @@ var now = function () {
 };
 
 (function () {
-    function Task($firebaseArray, $window) {
+    function Task($firebaseArray, $window, $filter) {
         var Task = {};    
      //   var ref = $firebaseArray(new Firebase('https://todolist-220d4.firebaseio.com')).child("tasks");   
         var ref = firebase.database().ref().child("tasks");
@@ -30,8 +30,8 @@ var now = function () {
             console.log("This is a test");
         };
 
-        Task.doit = function () {
-            alert();
+        Task.doit = function (taskId) {
+            console.log(taskId);
         };
       
         Task.addOld = function () {
@@ -42,10 +42,15 @@ var now = function () {
             tasks.$add({ description: description, taskDate: Task.taskDate, taskPriority: taskPriority, status: "A" });
         };
 
+        Task.condExpireTask = function(taskId) {
+            var allTasks = $filter('filter')(Task.all, { $id: taskId});
+            console.log(allTasks[0].description);
+            console.log(taskId);
+        };
 
         return Task;
     }
     angular
         .module('blocitoff')
-        .factory('Task', ['$firebaseArray', '$window', Task]);
+        .factory('Task', ['$firebaseArray', '$window','$filter', Task]);
 })();
