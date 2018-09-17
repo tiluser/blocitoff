@@ -42,10 +42,50 @@ var now = function () {
             tasks.$add({ description: description, taskDate: Task.taskDate, taskPriority: taskPriority, status: "A" });
         };
 
-        Task.condExpireTask = function(taskId) {
-            var allTasks = $filter('filter')(Task.all, { $id: taskId});
-            console.log(allTasks[0].description);
-            console.log(taskId);
+        AppSpec.method("doDetermineTaskStatus", function (gsp) {
+         //   if (gsp.hasMinArgs(gsp.DataStack, 3) === false) { 
+         //       return;
+        //    }
+            var days = gsp.DataStack.pop();  
+            var taskDate = gsp.DataStack.pop();     
+            var currStatus = gsp.DataStack.pop();
+
+            console.log("Days is " + days);
+            console.log("taskDate is " + taskDate);
+            console.log("currStatus is " + currStatus);
+
+            var newStatus;
+
+            var dateComp = taskDate.split("/");
+            var rawDate = new Date(dateComp[2],dateComp[0] - 1, dateComp[1]);
+            var dateDiff = Date.now() - rawDate;
+
+            var msInDay = 86400 * 1000;
+            var timeWindow = days * msInDay;
+    
+            if ((dateDiff > timeWindow) && (currStatus === 'A')) {
+                newStatus = 'I';
+             }
+            else {
+                newStatus = currStatus;
+            }
+            gsp.DataStack.push(newStatus);                            
+        });
+
+        cfb1.BuildPrimitive("DTASKSTAT", cfb1.Modules.AppSpec.doDetermineTaskStatus, "AppSpec.doDetermineTaskStatus", 
+            "APPSPEC", "COMPINPF","( currstatus taskDate expireDays -- newstatus ) Status of I returned if not complete and past expire period");
+
+        // If task is active and past the expireDays window, it's set to inactive. Otherwise status is same as before. 
+        Task.condExpireTask = function(task) {
+            var allTasks = $filter('filter')(Task.all, { $id: task.$id});
+            var currStatus = allTasks[0].status;
+            var taskDate = allTasks[0].taskDate;
+            var expireDays = 7;
+            var newStatus;
+            cfjsSubmit(currStatus + " " + taskDate + " " + expireDays + " DTASKSTAT");
+
+            allTasks[0].status = gsp.DataStack.pop();
+            tasks.$save(task);
         };
 
         return Task;
