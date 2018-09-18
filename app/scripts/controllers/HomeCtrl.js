@@ -13,9 +13,9 @@
            // $window.alert(Task.taskDate);
         };
 
-        // Set task to 'E' or expired if it's past expiration date
-        this.condExpireTask = function(taskId) {
-            Task.condExpireTask(taskId);
+        // Set task to 'I' or inactive if it's past expiration date
+        this.condExpireTask = function(task) {
+            Task.condExpireTask(task);
         };
 
         this.cfjsSubmit = function(input) {
