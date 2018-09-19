@@ -1238,7 +1238,7 @@ AppSpec.method("doSleep", function (gsp) {
     }
 });
 /*
-AppSpec.method("doUpdateTaskStatus", function (gsp) {
+AppSpec.method("doDetermineTaskStatus", function (gsp) {
     if (gsp.hasMinArgs(gsp.DataStack, 3) === false) { 
                 return;
     }

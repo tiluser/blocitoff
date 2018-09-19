@@ -1,7 +1,7 @@
 (function () {
 
     function HomeCtrl($window, Task) {
-        this.title = "Blocitoff Application";
+        this.title = "Blocitoff Application - Home page";
         this.tasks = Task.all;
         this.message = function(msg) {
             $window.alert(msg);
@@ -13,7 +13,7 @@
            // $window.alert(Task.taskDate);
         };
 
-        // Set task to 'E' or expired if it's past expiration date
+        // Set task to 'I' or inactive if it's past expiration date
         this.condExpireTask = function(task) {
             Task.condExpireTask(task);
         };

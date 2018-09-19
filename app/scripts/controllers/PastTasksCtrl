@@ -1,7 +1,7 @@
 (function () {
 
     function HomeCtrl($window, Task) {
-        this.title = "- Home page";
+        this.title = "Blocitoff Application";
         this.tasks = Task.all;
         this.message = function(msg) {
             $window.alert(msg);

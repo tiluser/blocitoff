@@ -1,8 +1,9 @@
-<h1>Home Page - {{ home.title }}</h1>
+<p><a href="/pasttasks">Past tasks</a></p>
+<h1>Blocitoff {{ home.title }}</h1>
      <p>
      <table>
          <th>Description</th><th>Date</th><th>Priority</th><th>Status</th>
-         <tr ng-repeat="task in home.tasks" ng-show="task.status === 'A' || task.status === 'I'" ng-init="home.condExpireTask(task)">
+         <tr ng-repeat="task in home.tasks" ng-show="task.status === 'A'" ng-init="home.condExpireTask(task)">
             <td>{{ task.description }}</td>
             <td>{{ task.taskDate }}</td>
             <td>{{ task.taskPriority }}</td>

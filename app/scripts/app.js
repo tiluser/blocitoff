@@ -11,6 +11,11 @@
                  url: '/',
                  controller: 'HomeCtrl as home',
                  templateUrl: '/templates/home.html'
+             })
+              .state('pasttasks', {
+                url: '/pasttasks',
+                controller: 'PastTasksCtrl as pasttasks',
+                templateUrl: '/templates/pasttasks.html'
              });
      }
  

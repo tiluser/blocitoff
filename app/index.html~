@@ -72,7 +72,7 @@
         var cfjsSubmit = function (input) {
       //      var ds = document.getElementById('DataStack').value;
       //      var dsVals = parseStack(ds);
-            gsp.DataStack = dsVals;
+      //      gsp.DataStack = dsVals;
             
        //     var input = document.getElementById('Input').value
             gsp.InputArea = input;
@@ -87,6 +87,6 @@
 
     <script src="/scripts/services/Task.js"></script>
     <script src="/scripts/controllers/HomeCtrl.js"></script>
-
+    <script src="/scripts/controllers/PastTasksCtrl.js"></script>
 </body>
 </html>

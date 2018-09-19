@@ -1453,7 +1453,8 @@ cfb1.BuildPrimitive("BEEP", cfb1.Modules.AppSpec.doBeep, "AppSpec.doBeep", "APPS
 cfb1.BuildPrimitive("SLEEP", cfb1.Modules.AppSpec.doSleep, "AppSpec.doSleep", "APPSPEC", "COMPINPF","( n -- ) Sleeps n milliseconds");
 cfb1.BuildPrimitive("TEST", cfb1.Modules.AppSpec.doTest, "AppSpec.doTest", "APPSPEC", "COMPINPF","( -- ) Do what you like here");
 
-// cfb1.BuildPrimitive("DTASKSTAT", cfb1.Modules.AppSpec.doDetermineTaskStatus, "AppSpec.doDetermineTaskStatus", "APPSPEC", "COMPINPF","( currstatus taskDate expireDays -- newstatus ) Status of I returned if not complete and past expire period");
+// cfb1.BuildPrimitive("DTASKSTAT", cfb1.Modules.AppSpec.doDetermineTaskStatus, "AppSpec.doDetermineTaskStatus", 
+//     "APPSPEC", "COMPINPF","( currstatus taskDate expireDays -- newstatus ) Status of I returned if not complete and past expire period");
 
 
 
