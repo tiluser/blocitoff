@@ -1,19 +1,29 @@
 <p><a href="/pasttasks">Past tasks</a></p>
+
 <h1>Blocitoff {{ home.title }}</h1>
+<div style="overflow-x:auto;">
      <p>
      <table>
-         <th>Description</th><th>Date</th><th>Priority</th><th>Status</th>
+         <th align="left">Description</th><th align="left">Date</th><th>Priority</th><th>Status</th>
          <tr ng-repeat="task in home.tasks" ng-show="task.status === 'A'" ng-init="home.condExpireTask(task)">
             <td>{{ task.description }}</td>
             <td>{{ task.taskDate }}</td>
-            <td>{{ task.taskPriority }}</td>
-            <td>{{ task.status }}</td>
+            <td align="right">{{ task.taskPriority }}</td>
+            <td align="right">{{ task.status }}</td>
              </div>
         </tr>
     </table>
-
-    </p>
-    <p>Description : <input type="text" ng-model="description"></p>
-    <p>Priority (1-5): <input type="text" ng-model="priority"></p>
-    <p><button type="button" class="btn btn-default" ng-click="home.addTask(description, priority)">Add Task</button></p>
-    <p><button type="button" class="btn btn-default" ng-click=home.cfjsSubmit("HELLO");>Say hello</button></p> 
+</p>
+</div>
+<p>Description : <input type="text" size="25" ng-model="description"></p>
+<p>Priority (1-5): 
+<select ng-model="priority">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+</p>
+<p><button type="button" class="button" ng-click="home.addTask(description, priority)">Add Task</button></p>
+<p><button type="button" class="btn btn-default" ng-click=home.cfjsSubmit("HELLO");>Say hello</button></p> 

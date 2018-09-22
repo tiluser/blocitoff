@@ -1,16 +1,18 @@
 <p><a href="/">Home page</a></p>
 <h1>Blocitoff {{ pasttasks.title }}</h1>
+<p>
+<div style="overflow-x:auto;">
      <p>
      <table>
-         <th>Description</th><th>Date</th><th>Priority</th><th>Status</th>
-         <tr ng-repeat="task in pasttasks.tasks" ng-show="task.status != 'A'">
+         <th align="left">Description</th><th align="left">Date</th><th>Priority</th><th>Status</th>
+         <tr ng-repeat="task in pasttasks.tasks" ng-show="task.status != 'A'>
             <td>{{ task.description }}</td>
             <td>{{ task.taskDate }}</td>
-            <td>{{ task.taskPriority }}</td>
-            <td>{{ task.status }}</td>
+            <td align="right">{{ task.taskPriority }}</td>
+            <td align="right">{{ task.status }}</td>
+             </div>
         </tr>
     </table>
-
     </p>
-    <p><button type="button" class="btn btn-default" ng-click="/">Home page</button></p>
-    <p><button type="button" class="btn btn-default" ng-click=pasttasks.cfjsSubmit("PTEST");>Test CFE</button></p> 
+ </div>
+<p><button type="button" class="btn btn-default" ng-click=pasttasks.cfjsSubmit("PTEST");>Test CFE</button></p> 
