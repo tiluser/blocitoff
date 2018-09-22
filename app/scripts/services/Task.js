@@ -77,9 +77,6 @@ var now = function () {
 
         // If task is active and past the expireDays window, it's set to inactive. Otherwise status is same as before. 
         Task.condExpireTask = function(task) {
-       //     var allTasks = $filter('filter')(Task.all, { $id: task.$id});
-        //    var currStatus = allTasks[0].status;
-       //     var taskDate = allTasks[0].taskDate;
             var currStatus = task.status;
             var taskDate = task.taskDate;
             var expireDays = 5;
@@ -87,6 +84,13 @@ var now = function () {
             task.status = gsp.DataStack.pop();
             tasks.$save(task);
         };
+
+         // Sets the task status to 'C' 
+        Task.completeTask = function(task) {
+             task.status = 'C'
+            tasks.$save(task);
+        };
+
 
         return Task;
     }

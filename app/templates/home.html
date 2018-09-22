@@ -4,12 +4,13 @@
 <div style="overflow-x:auto;">
      <p>
      <table>
-         <th align="left">Description</th><th align="left">Date</th><th>Priority</th><th>Status</th>
+         <th align="left">Description</th><th align="left">Date</th><th>Priority</th><th>Status</th><th>Complete?</th>
          <tr ng-repeat="task in home.tasks" ng-show="task.status === 'A'" ng-init="home.condExpireTask(task)">
             <td>{{ task.description }}</td>
             <td>{{ task.taskDate }}</td>
             <td align="right">{{ task.taskPriority }}</td>
             <td align="right">{{ task.status }}</td>
+            <td><input type="checkbox" ng-click="home.completeTask(task)"></td>
              </div>
         </tr>
     </table>

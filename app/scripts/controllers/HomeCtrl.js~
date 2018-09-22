@@ -1,7 +1,7 @@
 (function () {
 
     function HomeCtrl($window, Task) {
-        this.title = "Blocitoff Application - Home page";
+        this.title = "- Home page";
         this.tasks = Task.all;
         this.message = function(msg) {
             $window.alert(msg);
@@ -18,9 +18,13 @@
             Task.condExpireTask(task);
         };
 
+        this.completeTask = function(task) {
+            alert("Checked");
+          //  Task.completeTask(task);
+        };
+
         this.cfjsSubmit = function(input) {
             Task.cfjsSubmit(input);
-           // $window.alert(input);
         };
 
         AppSpec.method("doHomeTest", function (gsp) {

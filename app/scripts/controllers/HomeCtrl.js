@@ -18,9 +18,12 @@
             Task.condExpireTask(task);
         };
 
+        this.completeTask = function(task) {
+            Task.completeTask(task);
+        };
+
         this.cfjsSubmit = function(input) {
             Task.cfjsSubmit(input);
-           // $window.alert(input);
         };
 
         AppSpec.method("doHomeTest", function (gsp) {
