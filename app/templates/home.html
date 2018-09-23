@@ -10,13 +10,13 @@
             <td>{{ task.taskDate }}</td>
             <td align="right">{{ task.taskPriority }}</td>
             <td align="right">{{ task.status }}</td>
-            <td><input type="checkbox" ng-click="home.completeTask(task)"></td>
+            <td align="center"><input type="checkbox" ng-click="home.completeTask(task)"></td>
              </div>
         </tr>
     </table>
 </p>
 </div>
-<p>Description : <input type="text" size="25" ng-model="description"></p>
+<p>Description : <input type="text" size="34" ng-model="description"></p>
 <p>Priority (1-5): 
 <select ng-model="priority">
     <option value="1">1</option>
@@ -27,4 +27,3 @@
 </select>
 </p>
 <p><button type="button" class="button" ng-click="home.addTask(description, priority)">Add Task</button></p>
-<p><button type="button" class="btn btn-default" ng-click=home.cfjsSubmit("HELLO");>Say hello</button></p> 

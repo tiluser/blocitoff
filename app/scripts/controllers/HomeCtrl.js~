@@ -7,10 +7,8 @@
             $window.alert(msg);
         };
         this.addTask = function(description, priority) {
-         //   Task.add();
             Task.add(description, priority);
             $window.alert("Task added");
-           // $window.alert(Task.taskDate);
         };
 
         // Set task to 'I' or inactive if it's past expiration date
@@ -19,8 +17,7 @@
         };
 
         this.completeTask = function(task) {
-            alert("Checked");
-          //  Task.completeTask(task);
+            Task.completeTask(task);
         };
 
         this.cfjsSubmit = function(input) {
@@ -34,13 +31,7 @@
         this.doit = function (taskId) {
             Task.doit(taskId);
         };
-        // at the bottom of your controller
-        var init = function () {   
-         //   Task.doit();
-        };
-        // and fire it after definition
-        init();
-    }
+     }
 
     angular
         .module('blocitoff')

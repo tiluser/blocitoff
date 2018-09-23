@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>To-Do List App</title>
     <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/normalize.css">
 </head>
 <body>
 <div class="container">
@@ -69,18 +70,10 @@
             return ds;
         };
         
-        var cfjsSubmit = function (input) {
-      //      var ds = document.getElementById('DataStack').value;
-      //      var dsVals = parseStack(ds);
-      //      gsp.DataStack = dsVals;
-            
-       //     var input = document.getElementById('Input').value
+        var cfjsSubmit = function (input) {       
             gsp.InputArea = input;
             cfb1.Modules.Interpreter.doParseInput(gsp);
             cfb1.Modules.Interpreter.doOuter(gsp);
-       //     document.getElementById('DataStack').value = gsp.DataStack.reverse().join("\n");
-       //     document.getElementById('vlist').innerHTML = gsp.HelpCommentField;
-       //     document.getElementById('soundArea').innerHTML = gsp.SoundField;
         };    
     </script>
 
