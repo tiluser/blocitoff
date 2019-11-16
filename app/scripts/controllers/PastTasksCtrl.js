@@ -33,7 +33,7 @@
             "( -- ) Test of defining Creole Primitive in the past tasks controller");
     
         cfb1.BuildPrimitive("MRT", cfb1.Modules.AppSpec.doMostRecentCompletedTask, "AppSpec.doMostRecentCompletedTask", "APPSPEC","COMPINPF", 
-        "( -- lctask ) Last completed task)");
+        "( -- lctask ) Pushes last completed task onto the stack)");
         
         cfb1.BuildPrimitive("SHOW", cfb1.Modules.AppSpec.doShow, "AppSpec.doShow", "APPSPEC","COMPINPF", 
         "( task -- ) Pops up alert box of showing task description and time)");
